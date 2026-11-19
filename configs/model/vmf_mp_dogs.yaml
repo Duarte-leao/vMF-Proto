@@ -1,0 +1,41 @@
+name: "vmf_mp_dogs"
+recipe: four_loss
+variant: class_specific
+shared_prototypes: 1000
+backbone: "dinov2_vitb14"
+# Backbone options: dinov2_vits14, dinov2_vitb14, dinov3_vits16, dinov3_vitb16
+# Set num_splits > 0 to enable the expanded backbone variants.
+num_splits: 1
+num_prototypes: 5
+gamma: 0.99
+temperature: 1.0
+kappa_init: 5.0
+kappa_learnable: true  # if false: κ is fixed to kappa_init (not optimized)
+norm_prototypes: true
+cluster_use_norm_tokens: true
+maps_norm_mode: "minmax"
+
+ot:
+  mode: "marginal"  # "balanced" or "marginal"
+  epsilon: 0.05
+  iters: 10
+
+pi:
+  decoupled: false  # if true: learn π for scoring even when OT is balanced
+  init_uniform: true  # if false: initialize π randomly (still learnable)
+
+fg:
+  method: "attn_pca_refine" # "pca" or "attn" or "attn_pca_refine"
+  pca_threshold: 0.5
+  attn:
+    threshold: 0.11
+    pool: "last"
+    center: 0.0
+    smooth: 3
+    use_edges: false
+  attn_pca_refine:
+    attn_threshold: 0.01
+    pca_threshold: 0.6
+    min_patches: 16
+    niter: 10
+    center: true

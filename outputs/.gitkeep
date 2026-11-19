@@ -1,0 +1,8 @@
+# TEMPLATE FILE — replace TODOs when starting a project
+#
+# This file should contain:
+# - Nothing; it exists only to keep the `outputs/` directory in git.
+#
+# TODO: Keep this file as-is. Do not write artifacts to `outputs/` unless your
+#       team explicitly decides to use it for committed, human-curated outputs.
+

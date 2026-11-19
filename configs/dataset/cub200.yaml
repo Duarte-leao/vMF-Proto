@@ -1,0 +1,10 @@
+name: "cub200"
+root: ${oc.env:DATA_ROOT,"./datasets"}
+cub_raw_dir: "CUB_200_2011"
+cropped_dir: "cub200_cropped"
+train_dir: "train_cropped"
+test_dir: "test_cropped"
+segmentations_dir: "segmentations"
+input_size: [224, 224]
+normalize: true
+num_classes: 200

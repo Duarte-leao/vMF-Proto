@@ -1,0 +1,8 @@
+name: ap10k
+root: ${oc.env:DATA_ROOT,"./datasets/ap10k"}
+annotation_dir: annotations
+images_dir: data
+split_id: 1
+num_classes: 50
+input_size: [224, 224]
+normalize: true

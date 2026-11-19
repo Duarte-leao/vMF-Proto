@@ -1,0 +1,71 @@
+seed: 42
+device: "cuda:0"
+batch_size: 312
+num_workers: 8
+prefetch_factor: 2
+epochs: 25
+fine_tuning_start_epoch: 1
+stage_2_proto_learn: true
+grad_accum_steps: 1
+
+backbone_lr: 1.0e-4
+classifier_lr: 1.0e-5
+kappa_lr: 1.2e-3
+proto_lr: 5.0e-4
+weight_decay: 0.0
+
+pin_memory: true
+persistent_workers: true
+eval_every_n_epochs: 1
+checkpoint_every_n_epochs: 1
+
+amp:
+  enabled: false
+  dtype: "bf16"  # "bf16" or "fp16"
+
+matmul_precision: "high"
+cudnn_benchmark: true
+deterministic: false
+
+compile:
+  enabled: false
+  mode: "reduce-overhead"
+
+loss:
+  l_ppd_coef: 0.8
+  l_ppd_temp: 0.1
+  l_resp_purity_coef: 0.3  # unused by the four-loss learner
+  l_resp_purity_temp: 1
+  l_resp_purity_start_epoch: ${train.fine_tuning_start_epoch}
+  l_logdet_vmf_coef: 1.0
+  l_logdet_eps: 1.0e-4
+  l_logdet_include_bg: false
+  bg_class_weight: 0.1
+
+# Statistical fitting and auxiliary-loss settings.
+fitting:
+  discovery_until: 12
+  fitted_by: 13
+  micro_batch_size: 16
+  support_microbatch: 64
+  feature_lr: 1.0e-4
+  fitting_feature_lr: 1.0e-4
+  pi_lr: 1.0e-5
+  fitting_pi_lr: 1.0e-3
+  mu_lr: 5.0e-4
+  kappa_lr: 7.0e-4
+  prediction_kl_initial: 0.5
+  prediction_kl_final: 0.1
+  prediction_kl_hold: 6
+  feature_anchor: 6.0
+  reference_peak: 4.0
+  noisy_retention: 3.0
+  peak_margin: 0.02
+  target_blend: 0.85
+  importance: 80.0
+  uniform_floor: 0.01
+  minimum_support_images: 5
+  refit_steps: 24
+  noise_std: 0.2
+  noise_clip: 0.25
+  monitor_split: test  # best.pth is explicitly test-monitored; use last.pth for final-epoch reporting

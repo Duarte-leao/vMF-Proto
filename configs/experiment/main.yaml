@@ -1,0 +1,12 @@
+# TEMPLATE FILE — replace TODOs when starting a project
+#
+# This file should contain:
+# - The "main result" experiment definition (paper table main row)
+# - Human-readable description and any config overrides (as text)
+#
+# DO NOT:
+# - Encode real hyperparameter values in the template; keep placeholders only.
+
+name: "main"
+description: "vMF-MP main training run on CUB-200-2011."
+overrides: []

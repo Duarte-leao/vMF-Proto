@@ -1,0 +1,7 @@
+name: "stanford_cars"
+root: ${oc.env:DATA_ROOT,"./datasets"}
+train_dir: "stanford_cars/train"
+test_dir: "stanford_cars/test"
+input_size: [224, 224]
+normalize: true
+num_classes: 196

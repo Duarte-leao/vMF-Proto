@@ -1,0 +1,14 @@
+metrics: ["accuracy", "consistency", "stability", "distinctiveness"]
+batch_size: 32
+primary_metric: "test/acc"
+checkpoint_alias: "last"
+checkpoint_path: ""
+run_dir: ""
+use_checkpoint_config: true
+pfr_topk: 1
+pcs_topk: 1
+split: test
+data_root: null
+topk: 5
+ap10k_regions: null  # optional evaluation-only native-mask NPZ; see README
+limit: 0  # nonzero is a technical subset check, not a reportable full evaluation

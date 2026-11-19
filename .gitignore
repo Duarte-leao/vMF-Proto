@@ -1,0 +1,64 @@
+# TEMPLATE FILE — replace TODOs when starting a project
+#
+# This file should contain:
+# - Ignore rules for local artifacts (runs, checkpoints, caches)
+# - Allowlist rules to keep placeholder directories in git
+#
+# TODO: Customize for your tooling (IDE, OS, experiment tracking).
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.ipynb_checkpoints/
+# Conda / virtualenv
+.conda/
+.venv/
+env/
+venv/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local experiment outputs (schema lives under runs/)
+runs/*
+!runs/.gitkeep
+
+# Local checkpoints directory (kept empty in git)
+checkpoints/*
+!checkpoints/.gitkeep
+*.pt
+*.pth
+*.pkl
+*.pdf
+*.png
+!repo_images/*.png
+wandb/
+tracked_classes.json
+history.csv
+meta.json
+config.yaml
+*.log
+*.npy
+*.npz
+
+# Hydra may write to outputs/ in some setups; keep directory but ignore generated files
+outputs/*
+!outputs/.gitkeep
+
+# Datasets
+CUB_200_2011/*
+datasets/*
+dinov2/
+dinov3/
+
+

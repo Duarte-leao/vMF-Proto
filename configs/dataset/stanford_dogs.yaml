@@ -1,0 +1,9 @@
+name: "stanford_dogs"
+root: ${oc.env:DATA_ROOT,"./datasets"}
+images_dir: "stanford_dogs/Images"
+split_dir: "stanford_dogs/train_test_split"
+train_list: "train_list.mat"
+test_list: "test_list.mat"
+input_size: [224, 224]
+normalize: true
+num_classes: 120

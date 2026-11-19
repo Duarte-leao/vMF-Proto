@@ -1,0 +1,5 @@
+defaults:
+  - vmf_mp
+  - _self_
+variant: shared
+shared_prototypes: 1000

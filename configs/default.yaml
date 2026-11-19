@@ -1,0 +1,35 @@
+defaults:
+  - dataset: cub200
+  - model: vmf_mp
+  - train: vmf_mp
+  - eval: vmf_mp
+  - experiment: main
+  - _self_
+# Override example: `python scripts/train.py model=vmf_mp`
+
+project:
+  name: "vmf_mp"
+  description: "vMF-MP: class-conditional vMF mixture prototypes."
+
+run:
+  name: "vmf_mp_cub"
+  note: ""
+  dry_run: false
+  resume_dir: ""
+  smoke_limit: 0  # nonzero: technical subset only, never a reportable experiment
+
+paths:
+  runs_root: "runs"
+
+wandb:
+  mode: "disabled" # online|offline|disabled
+  entity: "" # optional (defaults to your W&B account)
+  project: "${project.name}"
+  name: "${run.name}"
+  group: ""
+  tags: []
+
+# Keep Hydra from changing the working directory; scripts manage run directories explicitly.
+hydra:
+  job:
+    chdir: false

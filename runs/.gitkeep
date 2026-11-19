@@ -1,0 +1,8 @@
+# TEMPLATE FILE — replace TODOs when starting a project
+#
+# This file should contain:
+# - Nothing; it exists only to keep the `runs/` directory in git.
+#
+# NOTE: All real run artifacts should be written under `runs/` but should remain
+#       uncommitted by default (see `.gitignore`).
+
